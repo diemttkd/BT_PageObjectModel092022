@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite Product Test" verbose="1">
+    <test name="Product Test on Chrome">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="KieuDiem.tests.ProductTest" />
+        </classes>
+    </test>
+</suite>

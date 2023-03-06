@@ -67,6 +67,13 @@ public class WebUI {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);", getElement(by));
     }
+    public static String getHTML5ValidationMessage(WebElement element){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        return (String)js.executeScript("return arguments[0].validationMessage;", element);
+    }
+    public static String getErrorInRequiredField(By by){
+        return getHTML5ValidationMessage(getElement(by));
+    }
     public static void waitforElementPresent(By by, int second){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(second));
 

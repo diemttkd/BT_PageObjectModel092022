@@ -9,7 +9,7 @@ import org.testng.Assert;
 
 public class ProductPage {
 
-    private String PAGE_URL = "https://cms.anhtester.com/admin/products/admin";
+    private String PAGE_URL = "https://cms.anhtester.com/admin/products/all";
     private String PAGE_TEXT = "All Product";
 
     public By headerPage = By.xpath("//h5");
@@ -23,16 +23,20 @@ public class ProductPage {
         new WebUI(driver);
     }
 
+    //Verify Product Page
     public void verifyProductPage(){
         Assert.assertEquals(getCurrentURL(), PAGE_URL, "FAILED. The URL page is invalid");
         Assert.assertEquals(getTextElement(headerPage), PAGE_TEXT, "FAILED. The page text is invalid");
     }
+    //Search product vừa thêm mới
     public void searchProduct(String productName){
         waitforPageLoaded();
-        driver.findElement(inputSearchProduct).sendKeys(productName, Keys.ENTER);
+        getElement(inputSearchProduct).sendKeys(productName, Keys.ENTER);
         sleep(5);
+
     }
+    //Kiểm tra kết quả tìm kiếm product
     public void checkProductName(String productName){
-        Assert.assertEquals(getAttributeElement(tdRecord, "value"), productName, "Product name does not match");
+        Assert.assertEquals(getTextElement(tdRecord), productName, "Product name does not match");
     }
 }

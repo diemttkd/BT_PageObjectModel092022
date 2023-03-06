@@ -23,23 +23,29 @@ public class LoginPage {
         new WebUI(driver);
     }
 
+    //Verify login page
     public void verifyLoginPage(){
         Assert.assertEquals(getCurrentURL(), PAGE_URL,"Current URL is invalid");
         Assert.assertEquals(getTextElement(headerPage), PAGE_TEXT, "Header page is invalid");
     }
+    //Verify error message
     public void verifyErrorMessage(){
         Assert.assertTrue(driver.findElement(toastErrorMessage).isDisplayed(), "The toast error message is not displayed");
         Assert.assertEquals(getTextElement(toastErrorMessage), "Invalid login credentials", "Error message is invalid");
     }
+    //Điền email
     public void enterEmail(String email){
         setText(inputEmail, email);
     }
+    //Điền password
     public void enterPassword(String password){
         setText(inputPassword, password);
     }
+    //Click button
     public void clickonLogin(){
         clickElement(buttonLogin);
     }
+    //Xử lý login thành công
     public DashboardPage loginCMSsuccess(String email, String password){
         openURL(PAGE_URL);
         verifyLoginPage();
@@ -49,6 +55,7 @@ public class LoginPage {
 
         return new DashboardPage(driver);
     }
+    //Xử lý login thất bại
     public void loginCMSfail(String email, String password){
         openURL(PAGE_URL);
         verifyLoginPage();

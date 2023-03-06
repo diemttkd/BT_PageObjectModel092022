@@ -2,7 +2,7 @@ package KieuDiem.tests;
 
 import KieuDiem.common.BaseTest;
 import KieuDiem.pages.Product.AddNewProductPage;
-import KieuDiem.pages.CategoryPage;
+import KieuDiem.pages.Category.CategoryPage;
 import KieuDiem.pages.DashboardPage;
 import KieuDiem.pages.LoginPage;
 import KieuDiem.pages.Product.ProductPage;
